@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Editar Perfil</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <header>
+    <h1>Editar Perfil</h1>
+    <a href="index.html">Voltar</a>
+  </header>
+  <main>
+    <form id="profile-form">
+      <h2>Atualize seu Perfil</h2>
+      
+      <div style="text-align: center; margin-bottom: 25px;">
+        <div id="profile-picture-preview" style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%); margin: 0 auto 15px; overflow: hidden; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px;">
+          👤
+        </div>
+        <label style="color: #a78bfa; cursor: pointer; font-weight: 600; display: inline-block;">
+          📸 Alterar Foto de Perfil
+          <input type="file" id="profile-picture" accept="image/*" style="display: none;">
+        </label>
+      </div>
+      
+      <div>
+        <label>Nome</label>
+        <input id="name" placeholder="Seu nome completo" />
+      </div>
+      <div>
+        <label>Email</label>
+        <input id="email" placeholder="Seu email" />
+      </div>
+      <div>
+        <label>Senha (deixe em branco para não alterar)</label>
+        <input id="password" type="password" placeholder="Nova senha (opcional)" />
+      </div>
+      <button type="submit">Salvar Alterações</button>
+    </form>
+  </main>
+  <script src="profile.js"></script>
+</body>
+</html>

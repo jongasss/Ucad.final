@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #e0e0e0;
+}
+
+header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #7c3aed;
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.3);
+}
+
+header h1 {
+  color: #c084fc;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 10px rgba(192, 132, 252, 0.3);
+}
+
+header a {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #7c3aed;
+  background: transparent;
+  color: #c084fc;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+header a:hover {
+  background: #7c3aed;
+  color: white;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.5);
+  transform: translateY(-2px);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+#profile-form {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 40px;
+  border-radius: 15px;
+  border: 2px solid #7c3aed;
+  box-shadow: 0 20px 60px rgba(124, 58, 237, 0.3);
+  width: 100%;
+  max-width: 500px;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#profile-form h2 {
+  color: #c084fc;
+  margin-bottom: 30px;
+  font-size: 28px;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(192, 132, 252, 0.3);
+}
+
+#profile-form div {
+  margin-bottom: 25px;
+}
+
+#profile-form label {
+  display: block;
+  color: #a78bfa;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+#profile-form input {
+  width: 100%;
+  padding: 12px 15px;
+  background: #0f0f23;
+  border: 2px solid #7c3aed;
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+#profile-form input:focus {
+  outline: none;
+  border-color: #a78bfa;
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+  background: #1a1a3e;
+}
+
+#profile-form input::placeholder {
+  color: #6b7280;
+}
+
+#profile-form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+}
+
+#profile-form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.6);
+}
+
+#profile-form button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0c29;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #a78bfa 0%, #c084fc 100%);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  #profile-form {
+    padding: 30px 20px;
+  }
+}

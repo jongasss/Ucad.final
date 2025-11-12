@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Detalhes do Post</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <h1>Ucad</h1>
+    <div id="header-links">
+      <!-- links updated by script -->
+    </div>
+  </header>
+
+  <main>
+    <div style="margin-bottom: 20px;">
+      <a href="index.html" style="color: #c084fc; text-decoration: none; font-weight: 600;">← Voltar</a>
+    </div>
+
+    <section id="post-detail" style="display: none;">
+      <!-- Post details will be loaded here -->
+    </section>
+
+    <section id="edit-section" style="display: none;">
+      <div class="post-form" style="margin-bottom: 30px;">
+        <h3>Editar Publicação</h3>
+        <textarea id="edit-content" placeholder="O que você quer compartilhar?"></textarea>
+        <div style="margin-top: 10px;">
+          <label style="color: #a78bfa; cursor: pointer; font-weight: 600;">
+            📸 Alterar Imagem
+            <input type="file" id="edit-image" accept="image/*" style="display: none;">
+          </label>
+          <div id="edit-image-preview" style="margin-top: 10px;"></div>
+        </div>
+        <button id="edit-submit" style="margin-right: 10px;">Salvar</button>
+        <button id="cancel-edit" style="background: #6b7280; color: white; padding: 12px 30px; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s ease;">Cancelar</button>
+      </div>
+    </section>
+
+    <section id="comments-section">
+      <!-- Comments will be loaded here -->
+    </section>
+  </main>
+
+  <script src="post-detail.js"></script>
+</body>
+</html>
