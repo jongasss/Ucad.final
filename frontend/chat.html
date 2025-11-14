@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Simples</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <header>
+    <div id="brand" style="display:flex;align-items:center;gap:12px;">
+      <img id="logo" src="logo.svg" alt="Ucad logo" style="width:56px;height:56px;" />
+      <h1>Ucad</h1>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <nav id="site-links" style="display:flex;gap:10px;align-items:center">
+        <a href="about.html">Sobre o UCAD</a>
+        <a href="drogas.html">Uso de drogas</a>
+        <a href="index.html">Home</a>
+      </nav>
+      <div id="header-links">
+        <!-- links updated by script -->
+      </div>
+    </div>
+  </header>
+
+    <main id="chat-view" class="view">
+        <div class="sidebar">
+            <h3>Usuários Online</h3>
+            <ul id="user-list"></ul>
+        </div>
+        <div class="main-chat">
+            <div id="welcome-message">
+                <h2>Bem-vindo!</h2>
+                <p>Selecione um usuário na lista para começar a conversar.</p>
+            </div>
+            <div id="chat-window" class="hidden">
+                <div class="chat-header">Conversando com <span id="chatting-with"></span></div>
+                <ul id="messages"></ul>
+                <form id="message-form">
+                    <input id="message-input" autocomplete="off" placeholder="Digite sua mensagem">
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>

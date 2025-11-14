@@ -13,11 +13,11 @@
       document.getElementById('email').value = data.email || '';
       
       // Load profile picture if exists
-      if (data.picture_url) {
+      if (data.profile_picture_url) {
         const preview = document.getElementById('profile-picture-preview');
         preview.innerHTML = '';
         const img = document.createElement('img');
-        img.src = data.picture_url;
+        img.src = api + "/uploads/" + data.profile_picture_url;
         img.style.width = '100%';
         img.style.height = '100%';
         img.style.objectFit = 'cover';
@@ -51,7 +51,7 @@
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
+    const password = document.getElementById('password').value.trim();
     
     if (!name || !email) return alert('Nome e email são obrigatórios');
     

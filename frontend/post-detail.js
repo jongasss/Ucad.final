@@ -31,8 +31,8 @@
         avatarWrap.style.alignItems = 'center';
         avatarWrap.style.justifyContent = 'center';
 
-        if (data && data.picture_url) {
-          const img = document.createElement('img'); img.src = data.picture_url; img.style.width='100%'; img.style.height='100%'; img.style.objectFit='cover'; avatarWrap.appendChild(img);
+        if (data && data.profile_picture_url) {
+          const img = document.createElement('img'); img.src = api + "/uploads/" + data.profile_picture_url; img.style.width='100%'; img.style.height='100%'; img.style.objectFit='cover'; avatarWrap.appendChild(img);
         } else {
           const initials = document.createElement('div'); initials.textContent = (data && data.name ? data.name.split(' ').map(x=>x[0]).slice(0,2).join('') : (user.name||'U').slice(0,2)).toUpperCase(); initials.style.color='#e9e7ff'; initials.style.fontWeight='700'; avatarWrap.appendChild(initials);
         }
@@ -80,7 +80,7 @@
         const ares = await fetch(api + '/users/' + currentPost.user_id);
         if (ares.ok) {
           const authorData = await ares.json();
-          currentPost.author_picture_url = authorData.picture_url;
+          currentPost.author_picture_url = authorData.profile_picture_url;
           currentPost.author = authorData.name || currentPost.author;
         }
       } catch (e) { /* ignore */ }
@@ -105,7 +105,7 @@
 
     let imageHtml = '';
     if (currentPost.image_url) {
-      imageHtml = `<img src="${currentPost.image_url}" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin: 15px 0;">`;
+      imageHtml = `<img src="${api + "/uploads/" + currentPost.image_url}" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin: 15px 0;">`;
     }
 
     let actionButtons = '';
@@ -120,7 +120,7 @@
 
     // Build header with avatar + author
     const headerHtml = (() => {
-      const avatarHtml = currentPost.author_picture_url ? `<div style="width:48px;height:48px;border-radius:50%;overflow:hidden;margin-right:12px;"><img src='${currentPost.author_picture_url}' style='width:100%;height:100%;object-fit:cover;'/></div>` : `<div style="width:48px;height:48px;border-radius:50%;background:#2b2b3a;color:#e9e7ff;display:flex;align-items:center;justify-content:center;margin-right:12px;font-weight:700">${(currentPost.author||'U').split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase()}</div>`;
+      const avatarHtml = currentPost.author_picture_url ? `<div style="width:48px;height:48px;border-radius:50%;overflow:hidden;margin-right:12px;"><img src='${api + "/uploads/" + currentPost.author_picture_url}' style='width:100%;height:100%;object-fit:cover;'/></div>` : `<div style="width:48px;height:48px;border-radius:50%;background:#2b2b3a;color:#e9e7ff;display:flex;align-items:center;justify-content:center;margin-right:12px;font-weight:700">${(currentPost.author||'U').split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase()}</div>`;
       return `<div style="display:flex;align-items:center;margin-bottom:12px;">${avatarHtml}<div><strong style='color:#c084fc;font-size:16px'>${escapeHtml(currentPost.author)}</strong><br/><small style='color:#9ca3af;font-size:12px'>${new Date(currentPost.created_at).toLocaleString()}</small>${currentPost.updated_at !== currentPost.created_at ? `<small style="color: #7c3aed; font-size: 11px; margin-left: 10px;">(editado)</small>` : ''}</div></div>`;
     })();
 
@@ -158,7 +158,7 @@
     preview.innerHTML = '';
     if (currentPost.image_url) {
       const img = document.createElement('img');
-      img.src = currentPost.image_url;
+      img.src = api + "/uploads/" + currentPost.image_url;
       img.style.maxWidth = '100%';
       img.style.maxHeight = '250px';
       img.style.borderRadius = '8px';
